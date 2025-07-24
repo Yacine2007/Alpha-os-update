@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# فتح lxterminal وعرض الرسالة
-if command -v lxterminal >/dev/null 2>&1; then
-    lxterminal -e bash -c 'echo "The update was successfully installed."; read -n 1 -s -r -p "اضغط أي مفتاح لإغلاق التحديث..."'
+# فحص إذا كانت zenity مثبتة
+if command -v zenity >/dev/null 2>&1; then
+    zenity --info \
+        --title="Alpha OS Update" \
+        --text="✅ تم تثبيت التحديث بنجاح!" \
+        --width=300 --height=100
 else
-    echo "lxterminal غير موجود في النظام."
+    echo "Zenity غير مثبت. لا يمكن عرض النافذة."
 fi
