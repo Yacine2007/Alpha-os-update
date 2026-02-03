@@ -1,2 +1,1 @@
-ex.sh
-py.py
+test0.sh
